@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Filmes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Catálogo de Filmes</h1>
+        <h2 class="subtitulo">Seja bem-vindo!</h2>
+    </header>
+
+    <section class="secao" id="destaque">
+        <h2>Destaque da Semana:</h2>
+
+        <img class="poster" src="assets/poster_supermario.webp" alt="Poster do filme Super Mario Bros.">
+        <h3>Super Mario Bros: O Filme</h3>
+        <p>Sinopse: <br>Filme baseado na série de video games, Super Mario Bros, da Nintendo. Em Super Mario Bros. - O
+            Filme, Mario (Chris Pratt) é um encanador qualquer no bairro de Brooklyn junto com seu irmão Luigi (Charlie
+            Day). Um dia, Mario e Luigi vão para no reino dos cogumelos, governado pela Princesa Peach (Anya
+            Taylor-Joy), mas ameaçado pelo rei dos Koopas, Bowser (Jack Black), que vai fazer de tudo para conseguir
+            reinar todos os lugares. É então quando Luigi é raptado por Bowser e o usa para procurar Mario, o único
+            capaz de deter o Koopa e reestabelecer a paz. Mario terá que aprender como viver nesse novo reino perigoso,
+            passando por vários biomas, aprender a dirigir carros, utilizar itens que o fazem soltar bolas de fogo das
+            mãos, virar um animal e andar em plataformas nada confiáveis. Também estará acompanhados de amigos, como
+            Toad (Keegan-Michael Key) e Donkey Kong (Seth Rogan).</p>
+        <p>Gêneros:</p>
+        <ul>
+            <li>Animação</li>
+            <li>Aventura</li>
+            <li>Comédia</li>
+            <li>Família</li>
+            <li>Fantasia</li>
+        </ul>
+    </section>
+
+    <section class="secao" id="catalogo">
+        <h2>Grade de Filmes (Catálogo):</h2>
+
+        <div class="cards">
+            <div class="card">
+                <img class="poster" src="assets/poster_filme1.jpg" alt="Poster do filme 1">
+                <a href="https://www.imdb.com/title/tt0372784/">
+                    <h3>Batman Begins</h3>
+                </a>
+                <p>Ano: 2005</p>
+                <p>Gêneros:</p>
+                <ul>
+                    <li>Ação</li>
+                    <li>Aventura</li>
+                    <li>Crime</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img class="poster" src="assets/poster_filme2.png" alt="Poster do filme 2">
+                <a href="https://www.imdb.com/title/tt0468569/">
+                    <h3>Batman - O Cavaleiro das Trevas</h3>
+                </a>
+                <p>Ano: 2008</p>
+                <p>Gêneros:</p>
+                <ul>
+                    <li>Ação</li>
+                    <li>Crime</li>
+                    <li>Drama</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img class="poster" src="assets/poster_filme3.jpg" alt="Poster do filme 3">
+                <a href="https://www.imdb.com/title/tt1345836/">
+                    <h3>The Dark Knight Rises</h3>
+                </a>
+                <p>Ano: 2012</p>
+                <p>Gêneros:</p>
+                <ul>
+                    <li>Ação</li>
+                    <li>Aventura</li>
+                    <li>Thriller</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao" id="premios">
+        <h2>Tabela de Lançamentos/Prêmios</h2>
+
+        <table class="filmes">
+            <tr>
+                <th>Filme</th>
+                <th>Ano</th>
+                <th>Nota</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Interestelar</td>
+                <td>2014</td>
+                <td>8,7</td>
+                <td>Oscar de Melhores Efeitos Visuais</td>
+            </tr>
+            <tr>
+                <td>Parasita</td>
+                <td>2019</td>
+                <td>8,5</td>
+                <td>Oscar de Melhor Filme</td>
+            </tr>
+            <tr>
+                <td>Divertida Mente</td>
+                <td>2015</td>
+                <td>8,1</td>
+                <td>Oscar de Melhor Animação</td>
+            </tr>
+            <tr>
+                <td>Oppenheimer</td>
+                <td>2023</td>
+                <td>8,3</td>
+                <td>Oscar de Melhor Filme</td>
+            </tr>
+            <tr>
+                <td>WALL-E</td>
+                <td>2008</td>
+                <td>8,4</td>
+                <td>Oscar de Melhor Animação</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="secao" id="listas-navegacao">
+        <h2>Listas & Navegação</h2>
+
+        <h3>Gêneros de filmes</h3>
+        <ul class="lista-generos">
+            <li>Ação</li>
+            <li>Aventura</li>
+            <li>Crime</li>
+            <li>Drama</li>
+            <li>Thriller</li>
+        </ul>
+
+        <h3>Navegação</h3>
+
+        <a class="menu-navegacao" href="#destaque">Destaque</a>
+        <br>
+        <a class="menu-navegacao" href="#catalogo">Catálogo</a>
+        <br>
+        <a class="menu-navegacao" href="#premios">Lançamentos/Prêmios</a>
+        <br>
+        <a class="menu-navegacao" href="#sobre">Contato</a>
+
+    </section>
+
+    <section class="secao" id="sobre">
+        <h2>Sobre/Contato</h2>
+
+        <p class="texto-contato"><img class="imagem-flutuante" src="assets/contato.png" alt="Ícone de contato">
+            Este catálogo de filmes foi desenvolvido como parte do Roteiro 02 da disciplina Desenvolvimento Web I,
+            disponibilizada pela UNEB.<br>
+
+            Nossas redes sociais:<br>
+            <a class="link" href="https://www.instagram.com/" target="_blank">Instagram</a> | <a class="link"
+                href="https://www.x.com/" target="_blank">X (Twitter)</a>
+        </p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
