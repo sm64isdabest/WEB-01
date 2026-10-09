@@ -8,3 +8,23 @@ let filmes = [
     { titulo: "Divertida Mente", ano: 2015, genero: "Animação", nota: 8.1, poster: "img/divertidamente.webp"},
     { titulo: "Oppenheimer", ano: 2023, genero: "Thriller", nota: 8.3, poster: "img/oppenheimer.jfif"}
 ];
+
+function mostrarFilmes(filmes) {
+    const cards = document.querySelector(".cards");
+    const contador = document.getElementById("contador");
+
+    contador.innerHTML = "Quantia de filmes: " + filmes.length;
+
+    cards.innerHTML = filmes.map(filme => `
+        <div class="card">
+            <img class="poster" src="${filme.poster}" alt="Pôster de ${filme.titulo}">
+            <h3>${filme.titulo}</h3>
+            <p>Ano: ${filme.ano}</p>
+            <p>Gênero: ${filme.genero}</p>
+            <p>Nota: ${filme.nota}</p>
+            ${filme.nota >= 8 ? "<p>Recomendado</p>" : ""}
+        </div>
+    `).join("");
+}
+
+mostrarFilmes(filmes);
