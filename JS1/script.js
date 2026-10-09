@@ -12,19 +12,29 @@ let filmes = [
 const busca = document.getElementById("busca");
 const cards = document.querySelector(".cards");
 const contador = document.getElementById("contador");
+const filtroGenero = document.getElementById("filtro-genero");
 
-busca.addEventListener("input", function () {
+function atualizarCatalogo() {
     const texto = busca.value.toLowerCase();
-    const filmesFiltrados = [];
+    const generoSelecionado = filtroGenero.value;
+    let filmesFiltrados;
 
-    for (const filme of filmes) {
-        if (filme.titulo.toLowerCase().includes(texto)) {
-            filmesFiltrados.push(filme);
-        }
+    if (generoSelecionado === "Todos") {
+        filmesFiltrados = filmes.filter(filme =>
+            filme.titulo.toLowerCase().includes(texto)
+        );
+    } else {
+        filmesFiltrados = filmes.filter(filme =>
+            filme.genero === generoSelecionado &&
+            filme.titulo.toLowerCase().includes(texto)
+        );
     }
 
     mostrarFilmes(filmesFiltrados);
-});
+}
+
+filtroGenero.addEventListener("change", atualizarCatalogo);
+busca.addEventListener("input", atualizarCatalogo);
 
 function mostrarFilmes(filmes) {
     contador.innerHTML = "Quantia de filmes: " + filmes.length;
