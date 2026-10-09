@@ -23,6 +23,13 @@ h1 {
     background-color: #b5b5b5;
 }
 
+#busca {
+    margin: 1.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border-style: none;
+}
+
 span#contador {
     padding-left: 5rem;
     font-size: larger;
