@@ -42,6 +42,15 @@ btnLimparFavoritos.addEventListener("click", function () {
     atualizarFavoritos();
 });
 
+const tituloDestaque = document.getElementById("destaque").querySelector("h2");
+
+tituloDestaque.addEventListener("mouseenter", function () {
+    tituloDestaque.style.color = "#e63946";
+});
+tituloDestaque.addEventListener("mouseout", function () {
+    tituloDestaque.style.color = "";
+});
+
 btnInverter.addEventListener("click", function () {
     filmes.reverse();
     mostrarFilmes(filmes);
@@ -51,7 +60,7 @@ function atualizarCatalogo() {
     const texto = busca.value.toLowerCase();
     const generoSelecionado = filtroGenero.value;
     let filmesFiltrados;
-    
+
     if (generoSelecionado === "Todos") {
         filmesFiltrados = filmes.filter(filme =>
             filme.titulo.toLowerCase().includes(texto)
@@ -71,12 +80,12 @@ busca.addEventListener("input", atualizarCatalogo);
 
 function mostrarFilmes(filmes) {
     contador.innerHTML = "Quantia de filmes: " + filmes.length;
-    
+
     if (filmes.length == 0) {
         cards.innerHTML = "<p>Nenhum filme encontrado</p>";
         return;
     }
-    
+
     cards.innerHTML = filmes.map(filme => `
         <div class="card">
         <img class="poster" src="${filme.poster}" alt="Pôster de ${filme.titulo}">
@@ -88,7 +97,7 @@ function mostrarFilmes(filmes) {
             <button onclick="favoritar(${filmes.indexOf(filme)})">♥ Favoritar</button>
             </div>
             `).join("");
-        }
+}
 
 mostrarFilmes(filmes);
 atualizarFavoritos();
