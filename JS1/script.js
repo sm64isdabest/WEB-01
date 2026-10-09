@@ -15,6 +15,33 @@ const contador = document.getElementById("contador");
 const filtroGenero = document.getElementById("filtro-genero");
 const btnInverter = document.getElementById("btn-inverter");
 
+const favoritos = [];
+const contadorFavoritos = document.getElementById("contador-favoritos");
+const listaFavoritos = document.getElementById("lista-favoritos");
+const btnLimparFavoritos = document.getElementById("limpar-favoritos");
+
+function favoritar(indice) {
+    const titulo = filmes[indice].titulo;
+
+    if (!favoritos.includes(titulo)) {
+        favoritos.push(titulo);
+        atualizarFavoritos();
+    }
+}
+
+function atualizarFavoritos() {
+    contadorFavoritos.textContent = `Favoritos: ${favoritos.length}`;
+
+    listaFavoritos.innerHTML = favoritos.length
+        ? `<ul>${favoritos.map(titulo => `<li>${titulo}</li>`).join("")}</ul>`
+        : "<p>Nenhum favorito ainda.</p>";
+}
+
+btnLimparFavoritos.addEventListener("click", function () {
+    favoritos.length = 0;
+    atualizarFavoritos();
+});
+
 btnInverter.addEventListener("click", function () {
     filmes.reverse();
     mostrarFilmes(filmes);
@@ -24,7 +51,7 @@ function atualizarCatalogo() {
     const texto = busca.value.toLowerCase();
     const generoSelecionado = filtroGenero.value;
     let filmesFiltrados;
-
+    
     if (generoSelecionado === "Todos") {
         filmesFiltrados = filmes.filter(filme =>
             filme.titulo.toLowerCase().includes(texto)
@@ -44,22 +71,24 @@ busca.addEventListener("input", atualizarCatalogo);
 
 function mostrarFilmes(filmes) {
     contador.innerHTML = "Quantia de filmes: " + filmes.length;
-
+    
     if (filmes.length == 0) {
         cards.innerHTML = "<p>Nenhum filme encontrado</p>";
         return;
     }
-
+    
     cards.innerHTML = filmes.map(filme => `
         <div class="card">
-            <img class="poster" src="${filme.poster}" alt="Pôster de ${filme.titulo}">
-            <h3>${filme.titulo}</h3>
-            <p>Ano: ${filme.ano}</p>
-            <p>Gênero: ${filme.genero}</p>
+        <img class="poster" src="${filme.poster}" alt="Pôster de ${filme.titulo}">
+        <h3>${filme.titulo}</h3>
+        <p>Ano: ${filme.ano}</p>
+        <p>Gênero: ${filme.genero}</p>
             <p>Nota: ${filme.nota}</p>
-            ${filme.nota >= 8 ? "<p>Recomendado</p>" : ""}
-        </div>
-    `).join("");
-}
+            ${filme.nota >= 8 ? "<p>⭐ Recomendado</p>" : ""}
+            <button onclick="favoritar(${filmes.indexOf(filme)})">♥ Favoritar</button>
+            </div>
+            `).join("");
+        }
 
 mostrarFilmes(filmes);
+atualizarFavoritos();
