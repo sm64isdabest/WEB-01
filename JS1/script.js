@@ -13,6 +13,12 @@ const busca = document.getElementById("busca");
 const cards = document.querySelector(".cards");
 const contador = document.getElementById("contador");
 const filtroGenero = document.getElementById("filtro-genero");
+const btnInverter = document.getElementById("btn-inverter");
+
+btnInverter.addEventListener("click", function () {
+    filmes.reverse();
+    mostrarFilmes(filmes);
+})
 
 function atualizarCatalogo() {
     const texto = busca.value.toLowerCase();
